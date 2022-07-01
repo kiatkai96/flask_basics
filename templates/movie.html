@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+      <meta charset="UTF-8">
+      <title>Watchable</title>
+
+  </head>
+  <body>
+
+    <h1> Movies to watch</h1>
+    <h2> This collection belongs to {{ name }} </h2>  <!-- placeholder for variable: name -->
+
+    <h3> movies: {{ movies }} </h3>
+    <h3> first: {{ movies[0] }} </h3>
+    <h3> slicing: {{ movies[1:4] }} </h3>
+
+    <hr> <!-- horizontal line -->
+
+    <ul> <!-- unordered list -->
+        {% for item in movies %}
+
+            <li> the movie is : {{ item }} </li> <!-- list item -->
+
+        {% endfor %}
+    </ul>
+
+  </body>
+</html>

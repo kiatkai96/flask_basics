@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>movie durations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!-- To link back to the CSS file -->
+                   <!-- 1st argument: Name of folder, 2nd argument: Path to file -->
+</head>
+<body>
+
+  <h2>this collection belongs to {{ name }}</h2>
+  <h3>path to css file: {{ url_for('static', filename='css/styles.css') }}</h3>
+
+  <table>
+    <tr> <!-- table roll -->
+      <th>movie</th> <!-- table heading -->
+      <th>length</th> <!-- table heading -->
+      <th>comments</th> <!-- table heading -->
+
+    </tr>
+
+    {% for movie, length in movies.items() %}
+
+      <tr>
+        <td>{{ movie }} </td> <!-- table data tag -->
+        <td>{{ length }} </td> <!-- table data tag -->
+        <!-- Below we are writing a logic, so we need the curly brackets -->
+        {% if length <= 2 %}
+          <td>short</td>
+        {% elif length >= 2 and length <= 3 %}
+          <td>medium</td>
+        {% else %}
+          <td style="color: red">long</td>
+        {% endif %}
+        <!-- close the loop with an end -->
+      </tr>
+
+    {% endfor %}
+  </table>
+
+</body>
+</html>

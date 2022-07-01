@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countries' Population</title>
+    <style>
+        table, th, td
+        {border:2px solid AliceBlue;}
+        table
+        {border-collapse:collapse;
+        width:20%}
+        tr
+        {background-color:Bisque;
+        color:Black;}
+        th
+        {background-color:BurlyWood;
+        color:Black;}
+    </style>
+</head>
+<body>
+    <h2>These are the top five countries.</h2>
+
+    <table>
+        <tr>
+            <th>Countries</th>
+            <th>Population</th>
+            <th>Big/Small</th>
+        </tr>
+
+        {% for country, pops in countries_d.items() %}
+        <tr>
+            <td>{{ country }}</td>
+            <td>{{ pops }}</td>
+            {% if pops < 1000000000 %}
+                <td style="color: orange">small</td>
+            {% else %}
+                <td style="color: green">large</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
